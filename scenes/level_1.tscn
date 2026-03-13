@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://drh3oiwc2bdl4"]
+
+[ext_resource type="PackedScene" uid="uid://dxfkyvqkt6b11" path="res://scenes/player.tscn" id="1_014kd"]
+[ext_resource type="Texture2D" uid="uid://f1h4otgcnd3n" path="res://images/Achtergrond01.png" id="1_rus8k"]
+[ext_resource type="Texture2D" uid="uid://bvsln6f05t4yi" path="res://images/Achtergrond02.png" id="2_5xbjy"]
+
+[node name="main" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Achtergrond01" type="Sprite2D" parent="Node2D"]
+position = Vector2(775.75, 550.688)
+scale = Vector2(0.44256, 0.442815)
+texture = ExtResource("1_rus8k")
+
+[node name="Achtergrond02" type="Sprite2D" parent="Node2D"]
+position = Vector2(2326, 550)
+scale = Vector2(0.441686, 0.442312)
+texture = ExtResource("2_5xbjy")
+
+[node name="Achtergrond03" type="Sprite2D" parent="Node2D"]
+position = Vector2(775, -477)
+scale = Vector2(0.442053, 0.442563)
+texture = ExtResource("1_rus8k")
+
+[node name="Achtergrond04" type="Sprite2D" parent="Node2D"]
+position = Vector2(2325, -477)
+scale = Vector2(0.441669, 0.44255)
+texture = ExtResource("2_5xbjy")
+
+[node name="Player" parent="." instance=ExtResource("1_014kd")]
+position = Vector2(215, 805)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.25, 1.25)
+limit_left = 0
+limit_top = -1030
+limit_right = 3105
+limit_bottom = 1100
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+editor_draw_limits = true
