@@ -1,13 +1,11 @@
 using Godot;
 using System;
 
-public partial class Player : Area2D
+public partial class Player : CharacterBody2D
 {
-	[Export]
-	public int Speed { get; set; } = 400;
-
-	[Export]
-	public int FallAccelaration { get; set; } = 75;
+	[Export] public int Speed = 400;
+	[Export] public float JumpStrength = -500f;
+	[Export] public float Gravity = 1000f;
 
 	public Vector2 ScreenSize;
 
@@ -16,47 +14,26 @@ public partial class Player : Area2D
 		ScreenSize = GetViewportRect().Size;
 	}
 
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
-		var velocity = Vector2.Zero;
-		var sprite2D = GetNode<Sprite2D>("Sprite2D");
+	    var sprite2D = GetNode<Sprite2D>("Sprite2D");
+	    Vector2 velocity = Velocity;
 
-		if (Input.IsActionPressed("move_right"))
-		{
-			velocity.X += 1;
-			sprite2D.FlipH = false;
-		}
+	    velocity.Y += Gravity * (float)delta; //gravity toevoegen
 
-		if (Input.IsActionPressed("move_left"))
-		{
-			velocity.X -= 1;
-			sprite2D.FlipH = true;
-		}
+	    float direction = Input.GetAxis("move_left", "move_right");
+        velocity.X = direction * Speed; //movement van links en rechts
 
-		if (Input.IsActionPressed("move_down"))
-		{
-			velocity.Y += 1;
-		}
+        // om de sprite te flippen
+		if (Input.IsActionPressed("move_right")) { sprite2D.FlipH = false; }
+		if (Input.IsActionPressed("move_left")) { sprite2D.FlipH = true; }
 
-		if (Input.IsActionPressed("move_up"))
-		{
-			velocity.Y -= 1;
-		}
+        if (IsOnFloor() && Input.IsActionPressed("jump"))
+        {
+            velocity.Y = JumpStrength;
+        }
 
-		if (Input.IsActionPressed("jump"))
-		{
-	
-		}
-
-		if (velocity.Length() > 0)
-		{
-			velocity = velocity.Normalized() * Speed;
-		}
-
-		Position += velocity * (float)delta;
-		Position = new Vector2(
-			x: Mathf.Clamp(Position.X, 0, ScreenSize.X),
-			y: Mathf.Clamp(Position.Y, 0, ScreenSize.Y)
-		);
+        Velocity = velocity;
+        MoveAndSlide();
 	}
 }
