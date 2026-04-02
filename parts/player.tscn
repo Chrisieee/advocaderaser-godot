@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xlo1q"]
 radius = 73.0
-height = 256.0
+height = 252.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(80, 947)
@@ -15,4 +15,5 @@ script = ExtResource("1_g2els")
 texture = ExtResource("2_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -2)
 shape = SubResource("CapsuleShape2D_xlo1q")

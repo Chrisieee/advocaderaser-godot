@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://drh3oiwc2bdl4"]
+[gd_scene load_steps=6 format=3 uid="uid://drh3oiwc2bdl4"]
 
 [ext_resource type="PackedScene" uid="uid://dqpchsw1w1doh" path="res://parts/player.tscn" id="1_014kd"]
 [ext_resource type="Texture2D" uid="uid://f1h4otgcnd3n" path="res://images/Achtergrond01.png" id="1_rus8k"]
 [ext_resource type="Texture2D" uid="uid://bvsln6f05t4yi" path="res://images/Achtergrond02.png" id="2_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://c2g6u6p2xpoc7" path="res://parts/platform.tscn" id="5_4nkto"]
 [ext_resource type="PackedScene" uid="uid://ctm12jpsfvaee" path="res://parts/ground.tscn" id="5_fcfvj"]
 
 [node name="main" type="Node2D"]
+position = Vector2(4, 1032)
 
 [node name="Achtergrond" type="Node2D" parent="."]
 
@@ -46,9 +48,9 @@ position = Vector2(109, 729)
 position = Vector2(472, -69)
 zoom = Vector2(1.25, 1.25)
 limit_left = 0
-limit_top = -1030
-limit_right = 4650
-limit_bottom = 1100
+limit_top = 0
+limit_right = 4635
+limit_bottom = 2130
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_left_margin = 0.0
@@ -62,23 +64,11 @@ position = Vector2(-10, 1111)
 
 [node name="Ground2" parent="Grond" instance=ExtResource("5_fcfvj")]
 
-[node name="Ground" parent="Grond/Ground2" instance=ExtResource("5_fcfvj")]
-position = Vector2(576, 0)
+[node name="Ground2" parent="Grond/Ground2" instance=ExtResource("5_fcfvj")]
+position = Vector2(3489, 0)
 
-[node name="Ground" parent="Grond/Ground2/Ground" instance=ExtResource("5_fcfvj")]
-position = Vector2(576, 0)
+[node name="Ground" parent="Grond/Ground2/Ground2" instance=ExtResource("5_fcfvj")]
+position = Vector2(575, 0)
 
-[node name="Ground" parent="Grond/Ground2/Ground/Ground" instance=ExtResource("5_fcfvj")]
-position = Vector2(576, 0)
-
-[node name="Ground" parent="Grond/Ground2/Ground/Ground/Ground" instance=ExtResource("5_fcfvj")]
-position = Vector2(576, 0)
-
-[node name="Ground" parent="Grond/Ground2/Ground/Ground/Ground/Ground" instance=ExtResource("5_fcfvj")]
-position = Vector2(576, 0)
-
-[node name="Ground" parent="Grond/Ground2/Ground/Ground/Ground/Ground/Ground" instance=ExtResource("5_fcfvj")]
-position = Vector2(576, 0)
-
-[node name="Ground" parent="Grond/Ground2/Ground/Ground/Ground/Ground/Ground/Ground" instance=ExtResource("5_fcfvj")]
-position = Vector2(576, 0)
+[node name="Platform" parent="." instance=ExtResource("5_4nkto")]
+position = Vector2(910, 745)
