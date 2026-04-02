@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://drh3oiwc2bdl4"]
+[gd_scene load_steps=7 format=3 uid="uid://drh3oiwc2bdl4"]
 
 [ext_resource type="PackedScene" uid="uid://dqpchsw1w1doh" path="res://parts/player.tscn" id="1_014kd"]
 [ext_resource type="Texture2D" uid="uid://f1h4otgcnd3n" path="res://images/Achtergrond01.png" id="1_rus8k"]
 [ext_resource type="Texture2D" uid="uid://bvsln6f05t4yi" path="res://images/Achtergrond02.png" id="2_5xbjy"]
 [ext_resource type="PackedScene" uid="uid://c2g6u6p2xpoc7" path="res://parts/platform.tscn" id="5_4nkto"]
 [ext_resource type="PackedScene" uid="uid://ctm12jpsfvaee" path="res://parts/ground.tscn" id="5_fcfvj"]
+[ext_resource type="PackedScene" uid="uid://c0e11bb26qrvc" path="res://parts/killzone.tscn" id="6_fcfvj"]
 
 [node name="main" type="Node2D"]
 position = Vector2(4, 1032)
 
 [node name="Achtergrond" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Achtergrond01" type="Sprite2D" parent="Achtergrond"]
 position = Vector2(775.75, 550.688)
@@ -63,6 +65,7 @@ editor_draw_limits = true
 position = Vector2(-10, 1111)
 
 [node name="Ground2" parent="Grond" instance=ExtResource("5_fcfvj")]
+metadata/_edit_lock_ = true
 
 [node name="Ground2" parent="Grond/Ground2" instance=ExtResource("5_fcfvj")]
 position = Vector2(3489, 0)
@@ -71,4 +74,8 @@ position = Vector2(3489, 0)
 position = Vector2(575, 0)
 
 [node name="Platform" parent="." instance=ExtResource("5_4nkto")]
-position = Vector2(910, 745)
+position = Vector2(910, 678)
+
+[node name="Killzone" parent="." instance=ExtResource("6_fcfvj")]
+position = Vector2(2296, 1106)
+scale = Vector2(3, 3)

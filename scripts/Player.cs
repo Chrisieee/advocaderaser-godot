@@ -13,12 +13,21 @@ public partial class Player : CharacterBody2D
     //Je kan als je van een grond of iets valt nog iets later de jump doen.
     [Export] public float CoyoteTime = 0.2f;
     private float CoyoteTimer = 0f;
+    private Vector2 SpawnPosition;
 
     public Vector2 ScreenSize;
 
     public override void _Ready()
     {
+        SpawnPosition = Position;
         ScreenSize = GetViewportRect().Size;
+        AddToGroup("player");
+    }
+
+    public void Respawn()
+    {
+        Position = SpawnPosition;
+        Velocity = Vector2.Zero;
     }
 
     public override void _PhysicsProcess(double delta)
