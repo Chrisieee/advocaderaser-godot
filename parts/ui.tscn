@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bably4fymmhxp"]
+
+[ext_resource type="Script" uid="uid://s86ob2mrmdih" path="res://scripts/CoinLabel.cs" id="1_krwku"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hy7fn"]
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+
+[node name="Ui" type="CanvasLayer"]
+
+[node name="CoinLabel" type="Label" parent="."]
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 308.0
+offset_bottom = 132.0
+text = "Coins: 0"
+label_settings = SubResource("LabelSettings_hy7fn")
+script = ExtResource("1_krwku")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://drh3oiwc2bdl4"]
+[gd_scene load_steps=9 format=3 uid="uid://drh3oiwc2bdl4"]
 
 [ext_resource type="PackedScene" uid="uid://dqpchsw1w1doh" path="res://parts/player.tscn" id="1_014kd"]
 [ext_resource type="Texture2D" uid="uid://f1h4otgcnd3n" path="res://images/Achtergrond01.png" id="1_rus8k"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c2g6u6p2xpoc7" path="res://parts/platform.tscn" id="5_4nkto"]
 [ext_resource type="PackedScene" uid="uid://ctm12jpsfvaee" path="res://parts/ground.tscn" id="5_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://c0e11bb26qrvc" path="res://parts/killzone.tscn" id="6_fcfvj"]
+[ext_resource type="PackedScene" uid="uid://bgywe1kpqbi3i" path="res://parts/coin.tscn" id="7_pa8r4"]
+[ext_resource type="PackedScene" uid="uid://bably4fymmhxp" path="res://parts/ui.tscn" id="8_15mv3"]
 
 [node name="main" type="Node2D"]
 position = Vector2(4, 1032)
@@ -79,3 +81,8 @@ position = Vector2(910, 678)
 [node name="Killzone" parent="." instance=ExtResource("6_fcfvj")]
 position = Vector2(2296, 1106)
 scale = Vector2(3, 3)
+
+[node name="Coin" parent="." instance=ExtResource("7_pa8r4")]
+position = Vector2(439, 792)
+
+[node name="Ui" parent="." instance=ExtResource("8_15mv3")]

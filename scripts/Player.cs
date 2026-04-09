@@ -3,19 +3,26 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
-    [Export] public int Speed = 400;
+    //Paar variabele aangemaakt
+    private Vector2 SpawnPosition;
+    public Vector2 ScreenSize;
 
+    //Voor player movement
+    [Export] public int Speed = 400;
+    //Voor de jump movement
     [Export] public float Gravity = 1000f;
     [Export] public float JumpStrength = -800f;
     [Export] public float FallMultiplier = 2f;
     [Export] public float LowJumpMultiplier = 3.5f;
-
-    //Je kan als je van een grond of iets valt nog iets later de jump doen.
     [Export] public float CoyoteTime = 0.2f;
     private float CoyoteTimer = 0f;
-    private Vector2 SpawnPosition;
 
-    public Vector2 ScreenSize;
+    //Dingen die de player bij houd
+    public int Coins = 0;
+    public int Lives = 3;
+
+    //Ui Update dingen
+    [Signal] public delegate void CoinsChangedEventHandler(int newAmount);
 
     public override void _Ready()
     {
@@ -28,6 +35,13 @@ public partial class Player : CharacterBody2D
     {
         Position = SpawnPosition;
         Velocity = Vector2.Zero;
+    }
+
+    public void AddCoin()
+    {
+        Coins++;
+        EmitSignal("CoinsChanged", Coins);
+        GD.Print(Coins);
     }
 
     public override void _PhysicsProcess(double delta)

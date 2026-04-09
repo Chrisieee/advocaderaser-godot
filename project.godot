@@ -24,6 +24,10 @@ window/size/viewport_height=1080
 
 project/assembly_name="Advocaderaser"
 
+[gui]
+
+theme/custom_font="uid://bu4lvp6kj1lrk"
+
 [input]
 
 move_right={
