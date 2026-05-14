@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://drh3oiwc2bdl4"]
+[gd_scene load_steps=10 format=3 uid="uid://drh3oiwc2bdl4"]
 
 [ext_resource type="PackedScene" uid="uid://dqpchsw1w1doh" path="res://parts/player.tscn" id="1_014kd"]
 [ext_resource type="Texture2D" uid="uid://f1h4otgcnd3n" path="res://images/Achtergrond01.png" id="1_rus8k"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c0e11bb26qrvc" path="res://parts/killzone.tscn" id="6_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://bgywe1kpqbi3i" path="res://parts/coin.tscn" id="7_pa8r4"]
 [ext_resource type="PackedScene" uid="uid://bably4fymmhxp" path="res://parts/ui.tscn" id="8_15mv3"]
+[ext_resource type="PackedScene" uid="uid://dole6rlqnro2h" path="res://parts/portal.tscn" id="9_e3sih"]
 
 [node name="main" type="Node2D"]
 position = Vector2(4, 1032)
@@ -45,6 +46,9 @@ position = Vector2(3866.47, 549.487)
 scale = Vector2(0.439439, 0.442956)
 texture = ExtResource("2_5xbjy")
 
+[node name="Portal" parent="." instance=ExtResource("9_e3sih")]
+position = Vector2(4254, 867)
+
 [node name="Player" parent="." instance=ExtResource("1_014kd")]
 position = Vector2(109, 729)
 
@@ -78,11 +82,23 @@ position = Vector2(575, 0)
 [node name="Platform" parent="." instance=ExtResource("5_4nkto")]
 position = Vector2(910, 678)
 
+[node name="Platform2" parent="." instance=ExtResource("5_4nkto")]
+position = Vector2(1943, 494)
+
+[node name="Platform3" parent="." instance=ExtResource("5_4nkto")]
+position = Vector2(2887, 588)
+
 [node name="Killzone" parent="." instance=ExtResource("6_fcfvj")]
 position = Vector2(2296, 1106)
 scale = Vector2(3, 3)
 
 [node name="Coin" parent="." instance=ExtResource("7_pa8r4")]
 position = Vector2(439, 792)
+
+[node name="Coin2" parent="." instance=ExtResource("7_pa8r4")]
+position = Vector2(1279, 424)
+
+[node name="Coin3" parent="." instance=ExtResource("7_pa8r4")]
+position = Vector2(3245, -87)
 
 [node name="Ui" parent="." instance=ExtResource("8_15mv3")]

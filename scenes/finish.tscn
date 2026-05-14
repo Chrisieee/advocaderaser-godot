@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://764eidemexo7"]
+
+[ext_resource type="Texture2D" uid="uid://f1h4otgcnd3n" path="res://images/Achtergrond01.png" id="1_07gpw"]
+[ext_resource type="Texture2D" uid="uid://bvsln6f05t4yi" path="res://images/Achtergrond02.png" id="2_2pftv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_07gpw"]
+font_size = 200
+font_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node2D"]
+
+[node name="Achtergrond" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Achtergrond01" type="Sprite2D" parent="Achtergrond"]
+position = Vector2(775.75, 550.688)
+scale = Vector2(0.44256, 0.442815)
+texture = ExtResource("1_07gpw")
+
+[node name="Achtergrond02" type="Sprite2D" parent="Achtergrond"]
+position = Vector2(2326, 550)
+scale = Vector2(0.441686, 0.442312)
+texture = ExtResource("2_2pftv")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 625.0
+offset_top = 354.0
+offset_right = 1311.0
+offset_bottom = 591.0
+text = "Gehaald!!"
+label_settings = SubResource("LabelSettings_07gpw")

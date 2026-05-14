@@ -21,8 +21,10 @@ public partial class Player : CharacterBody2D
     public int Coins = 0;
     public int Lives = 3;
 
-    //Ui Update dingen
+    //Signalen
     [Signal] public delegate void CoinsChangedEventHandler(int newAmount);
+    [Signal] public delegate void RespawnedEventHandler();
+    [Signal] public delegate void PortalActivateEventHandler();
 
     public override void _Ready()
     {
@@ -34,6 +36,7 @@ public partial class Player : CharacterBody2D
     public void Respawn()
     {
         Position = SpawnPosition;
+        EmitSignal("Respawned");
         Velocity = Vector2.Zero;
     }
 
@@ -42,6 +45,11 @@ public partial class Player : CharacterBody2D
         Coins++;
         EmitSignal("CoinsChanged", Coins);
         GD.Print(Coins);
+
+        if (Coins >= 3)
+        {
+            EmitSignal("PortalActivate");
+        }
     }
 
     public override void _PhysicsProcess(double delta)

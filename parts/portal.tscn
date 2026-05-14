@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dole6rlqnro2h"]
+
+[ext_resource type="Script" uid="uid://griilc360hlc" path="res://scripts/Portal.cs" id="1_iekox"]
+[ext_resource type="Texture2D" uid="uid://ra0r76sd44d5" path="res://images/portal.png" id="1_qddqa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qddqa"]
+radius = 177.0
+height = 382.0
+
+[node name="Portal" type="Area2D"]
+position = Vector2(0, -1)
+script = ExtResource("1_iekox")
+
+[node name="Portal" type="Sprite2D" parent="."]
+position = Vector2(192, -192)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_qddqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(192, -192)
+shape = SubResource("CapsuleShape2D_qddqa")
